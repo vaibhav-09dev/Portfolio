@@ -6,10 +6,10 @@ export async function GET(req) {
         console.log("Sending email...");
         const {Name, email, message} = await req.body();
       const response=  await resend.emails.send({
-            from: `${email}<onboarding@resend.dev>`,
+            from: 'vaibhav <onboarding@resend.dev>',
             to: ['vabhsingh@gmail.com'],
             subject: "New request",
-            text: `Name: ${Name}\nEmail: ${email}\nMessage: ${message}`,
+            text: `"you got a new request"`,
         });
         console.log("Email sent:", response);
         return NextResponse.json({ message: "email sent 9" });
