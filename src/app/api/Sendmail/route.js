@@ -1,14 +1,15 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 const resend = new Resend('re_ji1iBa6s_4PGqdranEn6dRuff4ogCsPhQ');
-export async function GET() {
+export async function GET(req) {
     try {
         console.log("Sending email...");
+        const {Name, email, message} = await req.body();
       const response=  await resend.emails.send({
-            from: 'Digital Dynamo <onboarding@resend.dev>',
+            from: `${email}<onboarding@resend.dev>`,
             to: ['vabhsingh@gmail.com'],
             subject: "New request",
-            text: "you got a new request",
+            text: `Name: ${Name}\nEmail: ${email}\nMessage: ${message}`,
         });
         console.log("Email sent:", response);
         return NextResponse.json({ message: "email sent 9" });
