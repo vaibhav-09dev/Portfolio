@@ -80,7 +80,8 @@ export function Contact() {
   const Send = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://vaibhavdev-five.vercel.app/api/ConsumerData", user).then((res) => {
+      await axios.post("https://vaibhavdev-eight.vercel.app/api/ConsumerData", user).then((res) => {
+              
         toast.success(res.data.message);
         setuser({
           Name: "",
@@ -98,6 +99,7 @@ export function Contact() {
         })
 
       })
+      await axios.get("https://vaibhavdev-eight.vercel.app/api/Sendmail");
 
     }
     catch (error) {
