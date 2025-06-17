@@ -77,6 +77,7 @@ export function Contact() {
     email: "",
     message: ""
   })
+    const [loading, setLoading] = useState(false);
   const Send = async (e) => {
     e.preventDefault();
     try {
@@ -101,8 +102,7 @@ export function Contact() {
       })
       await axios.get("https://vaibhavdev-eight.vercel.app/api/Sendmail");
 
-    }
-    catch (error) {
+    }catch (err) {
       toast("Error adding user");
       setuser({
         Name: "",
@@ -111,6 +111,7 @@ export function Contact() {
       })
 
     }
+        setLoading(false);
   };
 
   const containerVariants = {
