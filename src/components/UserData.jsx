@@ -10,7 +10,7 @@ const UserData = ({ users = [] }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://vaibhavdev-eight.vercel.app/api/Delete?id=${id}`).then((res) => {
+      await axios.delete(`https://vabhsinghdev-nu.vercel.app/api/Delete?id=${id}`).then((res) => {
         alert('Request Deleted Successfully');
         window.location.reload();
         setUserList(users.filter((user) => user._id !== id));

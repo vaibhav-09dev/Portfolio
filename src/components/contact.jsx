@@ -77,11 +77,10 @@ export function Contact() {
     email: "",
     message: ""
   })
-    const [loading, setLoading] = useState(false);
   const Send = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://vaibhavdev-eight.vercel.app/api/ConsumerData", user).then((res) => {
+      await axios.post("https://vabhsinghdev-nu.vercel.app/api/ConsumerData", user).then((res) => {
               
         toast.success(res.data.message);
         setuser({
@@ -100,10 +99,11 @@ export function Contact() {
         })
 
       })
-      await axios.get("https://vaibhavdev-eight.vercel.app/api/Sendmail");
+      await axios.get("https://vabhsinghdev-nu.vercel.app/api/Sendmail");
 
-    }catch (err) {
-      
+    }
+    catch (error) {
+      toast("Error adding user");
       setuser({
         Name: "",
         email: "",
@@ -111,7 +111,6 @@ export function Contact() {
       })
 
     }
-        setLoading(false);
   };
 
   const containerVariants = {
@@ -266,10 +265,9 @@ export function Contact() {
   />
   <button
     type="submit"
-    disabled={loading}
     className="w-full h-11 bg-white flex justify-center items-center text-black rounded-2xl font-semibold"
   >
-    {loading ? "Sending..." : "Send Message"} <span className="ml-2 text-black font-bold"><FaRegPaperPlane size={24} /></span>
+    Send Message <span className="ml-2 text-black font-bold"><FaRegPaperPlane size={24} /></span>
   </button>
 </form>
                   </div>
