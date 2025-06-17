@@ -16,7 +16,7 @@ export async function POST(req) {
         const newUser = new client({ Name, email ,message});
         const savedUser = await newUser.save();
 
-        return NextResponse.json({ message: "Thanks for connecting", success: true, savedUser });
+        return NextResponse.json({ message: "Thanks for connecting.", success: true, savedUser });
     } catch (error) {
         console.error("Error saving user:", error);
         return NextResponse.json({ message: "Error saving user", success: false, error: error.message }, { status: 500 });
