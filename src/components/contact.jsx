@@ -80,7 +80,7 @@ export function Contact() {
   const Send = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/ConsumerData", user).then((res) => {
+      await axios.post("https://vaibhavdev-five.vercel.app/api/ConsumerData", user).then((res) => {
         toast.success(res.data.message);
         setuser({
           Name: "",

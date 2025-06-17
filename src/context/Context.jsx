@@ -8,7 +8,7 @@ const Context = () => {
 
   const fetchall = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/All');
+      const res = await axios.get('https://vaibhavdev-five.vercel.app/api/All');
       console.log(res.data.alluser); // Debug API response
       setusers(res.data.alluser);
     } catch (error) {

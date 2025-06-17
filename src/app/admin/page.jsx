@@ -13,7 +13,7 @@ const page = () => {
         e.preventDefault(); 
         
         try {
-            await axios.post("http://localhost:3000/api/Auth",admin).then((res)=>{
+            await axios.post("https://vaibhavdev-five.vercel.app/api/Auth",admin).then((res)=>{
                 router.push("/vaibhav@3615");
 
             })
