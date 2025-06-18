@@ -103,7 +103,7 @@ export function Contact() {
 
     }
     catch (error) {
-      toast("Error");
+      
       setuser({
         Name: "",
         email: "",
