@@ -80,6 +80,10 @@ export function Skills() {
       src: "/t1.png",
     },
     {
+      title: "Typescript",
+      src: "/t6.png",
+    },
+    {
       title: "Tailwind CSS",
       src: "/t2.png",
     },

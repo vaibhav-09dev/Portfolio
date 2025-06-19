@@ -72,7 +72,7 @@ export function About() {
   ]
 
   // Image captions
-  const captions = ["Working with the team", "coding is therapy", "Eager to learn new things"]
+  const captions = ["Working with the team", "vibe coding", "Eager to learn new things"]
   const links=["https://github.com/vaibhav-09dev","https://x.com/Vaibhav0_dev?t=J5U4or5riN_TQRl96jbAgA&s=08","https://www.linkedin.com/in/vaibhav-singh-1aaa74327/"]
   // Handle mouse movement for parallax effect
   useEffect(() => {
@@ -175,9 +175,9 @@ export function About() {
     }}
     viewport={{ once: true }}
   >
-    <AnimatedText>
+    
       Hey there! I’m <span className='text-blue-600 font-bold'>Vaibhav Singh</span>, a dedicated Software Developer from Delhi, India, Motivated by the pursuit of building well-architected, responsive, and impactful digital products. As a B.Tech student in Computer Science and Engineering at Maharaja Agrasen Institute of Technology (MAIT), I enjoy solving real-world problems through clean code and smart design.
-    </AnimatedText>
+    
   </motion.p>
   <motion.p
     className="text-gray-200 text-xl   mb-5"
@@ -193,9 +193,9 @@ export function About() {
     }}
     viewport={{ once: true }}
   >
-    <AnimatedText>
+    
       I’ve worked on multiple freelancing and side  projects involving both frontend and backend development using tools like Next.js, React, and Node.js. 
-    </AnimatedText>
+    
   </motion.p>
   <motion.p
     className="text-gray-200 text-xl   mb-5"
@@ -211,9 +211,9 @@ export function About() {
     }}
     viewport={{ once: true }}
   >
-    <AnimatedText>
+    
       Beyond development, I enjoy learning about new technologies and sharpening my problem-solving skills. I’m a strong believer in continuous learning, teamwork, and creating solutions that truly improve user experiences.
-    </AnimatedText>
+    
   </motion.p>
   <motion.p
     className="text-gray-200 text-xl   mb-5"
@@ -229,9 +229,9 @@ export function About() {
     }}
     viewport={{ once: true }}
   >
-    <AnimatedText>
+    
       I'm currently looking for opportunities where I can grow, contribute, and work on impactful projects with innovative teams.
-    </AnimatedText>
+    
   </motion.p> <br /> <br />
   <motion.p
     className="text-gray-200 text-xl   mb-5"
