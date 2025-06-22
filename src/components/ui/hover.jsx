@@ -15,7 +15,7 @@ export const Card = React.memo(({
       "rounded-lg relative  dark: overflow-hidden h-60 md:h-66 w-full transition-all duration-300 ease-out",
       hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
     )}>
-    <img src={card.src} alt={card.title} className="w-full h-auto max-h-44 object-contain sm:max-h-76 md:max-h-[12rem] mx-auto transition-transform duration-300 group-hover:scale-105" />
+    <img src={card.src} alt={card.title} className="w-full h-auto max-h-44 object-contain flex mt-5 sm:max-h-76 md:max-h-[12rem] mx-auto transition-transform duration-300 group-hover:scale-105" />
     <div
       className={cn(
         "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",

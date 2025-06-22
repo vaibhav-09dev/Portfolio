@@ -1,73 +1,43 @@
 "use client"
-import { useMemo } from "react"
+
 import { motion } from "framer-motion"
-import { Canvas } from "@react-three/fiber"
-import { Text3D, Center, Float } from "@react-three/drei"
-import { Suspense } from "react"
+import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image";
 
 import { FocusCards } from "@/components/ui/hover";
- 
 
-
-function Floating3DText({ text, position, color }) {
-  return (
-    <Float speed={1.4} rotationIntensity={2} floatIntensity={3}>
-      <Center position={position}>
-        
-      </Center>
-    </Float>
-  )
-}
-
-function TechSymbols() {
-  const symbols = [
-    { symbol: "</>", position: [-6, 1, -4], color: "#3b82f6" },
-    { symbol: "{}", position: [6, -2, -3], color: "#8b5cf6" },
-    { symbol: "[]", position: [-2, 4, -5], color: "#06b6d4" },
-    { symbol: "()", position: [4, 3, -2], color: "#f59e0b" },
-  ]
-
-  return (
-    <>
-      {symbols.map((item, index) => (
-        <Float key={index} speed={1 + index * 0.3} rotationIntensity={1.5} floatIntensity={2}>
-          <Center position={item.position}>
-            
-          </Center>
-        </Float>
-      ))}
-    </>
-  )
-}
-
-function CodeMatrix() {
-  const matrix = useMemo(
-    () =>
-      Array.from({ length: 20 }, (_, i) => ({
-        key: i,
-        speed: 0.5 + Math.random(),
-        position: [
-          (Math.random() - 0.5) * 15,
-          (Math.random() - 0.5) * 10,
-          -8 - Math.random() * 5,
-        ],
-        text: Math.random() > 0.5 ? "1" : "0",
-      })),
-    []
-  )
-  return (
-    <>
-      {matrix.map((item) => (
-        <Float key={item.key} speed={item.speed} rotationIntensity={0.5} floatIntensity={1}>
-          <Center position={item.position}>
-            
-          </Center>
-        </Float>
-      ))}
-    </>
-  )
-}
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: [
+      { name: "React", level: 95 },
+      { name: "Next.js", level: 90 },
+      { name: "TypeScript", level: 88 },
+      { name: "Tailwind CSS", level: 92 },
+      { name: "Vue.js", level: 85 },
+    ],
+  },
+  {
+    title: "Backend",
+    skills: [
+      { name: "Node.js", level: 90 },
+      { name: "Python", level: 85 },
+      { name: "Express.js", level: 88 },
+      { name: "PostgreSQL", level: 82 },
+      { name: "MongoDB", level: 80 },
+    ],
+  },
+  {
+    title: "Tools & Others",
+    skills: [
+      { name: "Git", level: 95 },
+      { name: "Docker", level: 78 },
+      { name: "AWS", level: 75 },
+      { name: "Figma", level: 88 },
+      { name: "Linux", level: 85 },
+    ],
+  },
+]
 
 export function Skills() {
   const cards = [
@@ -104,106 +74,33 @@ export function Skills() {
       src: "/p5.png",
     },
   ];
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const cardVariants = {
-    hidden: { y: 50, opacity: 0, rotateY: -90 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.6,
-        type: "spring",
-        stiffness: 100,
-      },
-    },
-  }
-  const imageUrl =
-    "/p4.png";
-    
-
-
-  // Memoize code rain to avoid hydration errors
-  const codeRain = useMemo(
-    () =>
-      Array.from({ length: 50 }, () => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 5}s`,
-        animationDuration: `${2 + Math.random() * 3}s`,
-        text: Math.random() > 0.5 ? "01" : "10",
-      })),
-    []
-  )
-
   return (
-    <section id="skills" className="py-20 bg-gray-950 relative overflow-hidden">
-      {/* Animated Code Rain */}
-      <div className="absolute inset-0 opacity-10 overflow-hidden">
-        <div className="absolute inset-0 text-green-400 text-xs font-mono leading-none animate-pulse">
-          {codeRain.map((item, i) => (
-            <div
-              key={i}
-              className="absolute animate-bounce"
-              style={{
-                left: item.left,
-                top: item.top,
-                animationDelay: item.animationDelay,
-                animationDuration: item.animationDuration,
-              }}
-            >
-              {item.text}
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0 opacity-20">
-        <Canvas camera={{ position: [0, 0, 8] }}>
-          <Suspense fallback={null}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} />
-            <pointLight position={[-10, -10, -10]} color="#8b5cf6" />
-            <Floating3DText text="CODE" position={[-4, 2, -2]} color="#3b82f6" />
-            <Floating3DText text="WEB" position={[4, -1, -1]} color="#8b5cf6" />
-            <Floating3DText text="DEV" position={[0, 3, -3]} color="#06b6d4" />
-            <TechSymbols />
-            <CodeMatrix />
-          </Suspense>
-        </Canvas>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 mb-2 lg:px-8 relative z-10">
+    <section id="skills" className="py-20 ">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="w-full mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <motion.h2
-            className="text-3xl sm:text-6xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Tech-<span className="text-blue-400">Tools</span>
-          </motion.h2>
-
-         
-          <FocusCards cards={cards}  />
+          <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 mb-6">Tools & Frameworks</h2>
+          <div className="w-32 h-1 bg-gray-800 mx-auto"></div>
         </motion.div>
+
+        
+          
+            <motion.div
+              
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              
+              viewport={{ once: true }}
+            >
+             <FocusCards cards={cards}  />
+            </motion.div>
+          
+        
       </div>
     </section>
   )

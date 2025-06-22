@@ -4,7 +4,7 @@ const resend = new Resend('re_ji1iBa6s_4PGqdranEn6dRuff4ogCsPhQ');
 export async function GET(req) {
     try {
         console.log("Sending email...");
-        const {Name, email, message} = await req.body();
+        
       const response=  await resend.emails.send({
             from: 'vaibhav <onboarding@resend.dev>',
             to: ['vabhsingh@gmail.com'],

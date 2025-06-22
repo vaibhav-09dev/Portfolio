@@ -1,123 +1,97 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { motion } from "framer-motion"
+
+const navItems = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      const sections = navItems.map((item) => item.href.slice(1))
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
     }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ]
-
-  // Smooth scroll handler
-  const handleSmoothScroll = (e, href) => {
-    if (href.startsWith("#")) {
-      e.preventDefault()
-      const el = document.querySelector(href)
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" })
-        setIsMenuOpen(false)
-      }
+  const scrollToSection = (href) => {
+    const element = document.getElementById(href.slice(1))
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
     }
+    setIsMenuOpen(false)
   }
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-gray-950/95 backdrop-blur-md border-b border-gray-800" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="#home" className="text-xl font-bold text-blue-400" onClick={e => handleSmoothScroll(e, "#home")}>
-              {"<DevName />"}
-            </Link>
-          </motion.div>
+    <header className="fixed top-0 left-5 right-5 z-50 rounded-3xl  backdrop-blur-2xl border-b border-gray-200">
+      <div className="container mx-auto px-5 py-4">
+        <div className="flex items-center justify-between">
+          <div className="text-2xl font-bold text-gray-800">{"< VabhSingh/>"}</div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className={`text-lg font-bold transition-colors hover:text-gray-900 ${
+                  activeSection === item.href.slice(1) ? "text-gray-900" : "text-gray-600"
+                }`}
               >
-                <Link
-                  href={item.href}
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 relative group"
-                  onClick={e => handleSmoothScroll(e, item.href)}
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </motion.div>
+                {item.name}
+              </button>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-gray-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <motion.div animate={{ rotate: isMenuOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </motion.div>
-          </button>
+          <Button variant="ghost" size="icon" className="md:hidden text-gray-800 font-bold" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X className="w-5 h-5 " /> : <Menu className="w-5 h-5" />}
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
-        <motion.nav
-          initial={{ opacity: 0, height: 0 }}
-          animate={{
-            opacity: isMenuOpen ? 1 : 0,
-            height: isMenuOpen ? "auto" : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden border-t border-gray-800"
-        >
-          <div className="py-4">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : -20 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link
-                  href={item.href}
-                  className="block py-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
-                  onClick={e => handleSmoothScroll(e, item.href)}
+        {isMenuOpen && (
+          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+            <div className="flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`text-left text-sm font-medium transition-colors hover:text-gray-900 ${
+                    activeSection === item.href.slice(1) ? "text-gray-900" : "text-gray-600"
+                  }`}
                 >
-                  {item.label}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.nav>
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </nav>
+        )}
       </div>
-    </motion.header>
+    </header>
   )
 }
