@@ -14,7 +14,7 @@ const projects = [
       "SnipZ is a sleek and efficient platform for sharing, saving, and discovering code snippets. Built for developers, by developers — SnipZ makes it easy to organize reusable code, collaborate with others, and streamline your workflow.",
     image: "/pr1.jpg?height=200&width=400",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "#",
+    liveUrl: "https://snip-z-vaibhav0dev-five.vercel.app/",
     githubUrl: "#",
   },
 
