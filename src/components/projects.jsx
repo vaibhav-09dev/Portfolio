@@ -14,7 +14,7 @@ const projects = [
       "SnipZ is a sleek and efficient platform for sharing, saving, and discovering code snippets. Built for developers, by developers — SnipZ makes it easy to organize reusable code, collaborate with others, and streamline your workflow.",
     image: "/pr1.jpg?height=200&width=400",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "#",
+    liveUrl: "https://snip-z-vaibhav0dev-five.vercel.app/",
     githubUrl: "#",
   },
 
@@ -71,10 +71,12 @@ export function Projects() {
                   </div>
 
                   <div className="flex gap-3 pt-2">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <Button size="sm" className="bg-gray-800 hover:bg-gray-900">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo
                     </Button>
+                    </a>
                     <Button size="sm" variant="outline" className="border-gray-300 hover:bg-gray-600">
                       <Github className="w-4 h-4 mr-2" />
                       Code

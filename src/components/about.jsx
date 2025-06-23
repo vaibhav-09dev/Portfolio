@@ -31,12 +31,19 @@ export function About() {
             <Card className="bg-gray-100 border-0 shadow-lg">
               <CardContent className="p-4">
                 <div className="aspect-square bg-gray-200 rounded-2xl mb-6 flex items-center justify-center">
-                  <Image
-                    src="/p1.jpg?height=300&width=300"
+                  <video
+                    src="/v1.mp4?height=300&width=300"
                     alt="Profile"
+                    type="video/mp4"
+                    muted
+                    playsInline
+                    preload="auto"
+                    autoPlay
+                    loop
+                    controls={false}
                     width={300}
                     height={300}
-                    className="rounded-lg object-fit w-full h-full"
+                    className="rounded-lg object-cover w-full h-full"
                   />
                 </div>
               </CardContent>
