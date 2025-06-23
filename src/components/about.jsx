@@ -73,7 +73,7 @@ export function About() {
             <div className="flex justify-center items-center   mt-4">
               
               <div className="mr-6">
-                <a href="/">
+                <a href="mailto:vabhsingh@gmail.com">
                 <Button variant="outline" size="icon" className="border-gray-300  md:w-60 w-48 hover:bg-gray-600">
                   <Mail className="w-8 h-8 mr-2
                   " />
@@ -81,7 +81,7 @@ export function About() {
                 </Button>                </a>
               </div>
               <div className="mr-6">
-                 <a href="/">
+                 <a href="https://www.linkedin.com/in/vaibhav-singh-1aaa74327/">
                 
                   <Button variant="outline" size="icon" className="border-gray-300 hover:bg-gray-600">
                   <Linkedin className="w-8 h-8" />
@@ -90,7 +90,7 @@ export function About() {
                 </a>
               </div>
               <div>
-                 <a href="/">
+                 <a href="https://x.com/Vaibhav0_dev?t=J5U4or5riN_TQRl96jbAgA&s=08">
                 <Button variant="outline" size="icon" className="border-gray-300 hover:bg-gray-600">
                   <TwitterIcon className="w-8 h-8" />
                 </Button>
