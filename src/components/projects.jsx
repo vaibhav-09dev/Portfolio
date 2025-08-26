@@ -31,7 +31,7 @@ export function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 mb-6">Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold text-[#bc0000] mb-6"><span className="cursor-target">Projects</span></h2>
           <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
         </motion.div>
 

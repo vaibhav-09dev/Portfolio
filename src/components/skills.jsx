@@ -75,7 +75,7 @@ export function Skills() {
     },
   ];
   return (
-    <section id="skills" className="py-20 ">
+    <section id="skills" className="py-24 ">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -84,7 +84,7 @@ export function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 mb-6">Tools & Frameworks</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold cursor-target text-[#bc0000] mb-6"><span className="cursor-target">   Tools <span className="text-[#e60000]"> &</span> Frameworks </span></h2>
           <div className="w-32 h-1 bg-gray-800 mx-auto"></div>
         </motion.div>
 

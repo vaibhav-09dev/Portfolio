@@ -1,97 +1,111 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-]
-
+import React from "react";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import PillNav from "./ui/PillNav";
+import a2 from "../../public/a2.jpg";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
+import {
+  IconBrandGithub,
+  IconBrandX,
+  IconExchange,
+  IconHome,
+  IconNewSection,
+  IconTerminal2,
+} from "@tabler/icons-react";
+import { useState } from "react";
+import { useContext } from "react";
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.slice(1))
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const scrollToSection = (href) => {
-    const element = document.getElementById(href.slice(1))
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
-  }
-
+  const navItems = [
+    {
+      name: "About",
+      link: "#about",
+    },
+    {
+      name: "Technologies",
+      link: "#skills",
+    },
+    {
+      name: "Projects",
+      link: "#projects",
+    },
+    {
+      name: "Contact",
+      link: "#contact",
+    },
+  ];
+ 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+ 
   return (
-    <header className="fixed top-0 left-5 right-5 z-50 rounded-3xl  backdrop-blur-2xl border-b border-gray-200">
-      <div className="container mx-auto px-5 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-gray-800">{"< VabhSingh/>"}</div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={`text-lg font-bold transition-colors hover:text-gray-900 ${
-                  activeSection === item.href.slice(1) ? "text-gray-900" : "text-gray-600"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden text-gray-800 font-bold" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="w-5 h-5 " /> : <Menu className="w-5 h-5" />}
-          </Button>
-        </div>
-
+    <div className="fixed w-full z-50 md:mt-1">
+      <Navbar>
+        {/* Desktop Navigation */}
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} />
+          <div className="flex items-center gap-4">
+            <a href={`https://wa.me/919650234386?text=hello`} target='blank'  rel='noreferrer noopener'>
+            
+            <NavbarButton variant="primary" className={"text-green-500"} >WhatsApp</NavbarButton>
+            </a>
+          </div>
+        </NavBody>
+ 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`text-left text-sm font-medium transition-colors hover:text-gray-900 ${
-                    activeSection === item.href.slice(1) ? "text-gray-900" : "text-gray-600"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </MobileNavHeader>
+ 
+          <MobileNavMenu
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          >
+            {navItems.map((item, idx) => (
+              <a
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="relative text-neutral-600 dark:text-neutral-300"
+              >
+                <span className="block">{item.name}</span>
+              </a>
+            ))}
+            <div className="flex w-full flex-col gap-4">
+              <a href={`https://wa.me/919650234386?text=hello`} target='blank'  rel='noreferrer noopener'>
+             
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full text-green-500"
+              >
+                WhatsApp
+              </NavbarButton>
+              </a>
             </div>
-          </nav>
-        )}
-      </div>
-    </header>
-  )
-}
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+      
+
+ 
+      {/* Navbar */}  
+    </div>
+  );
+
+  }

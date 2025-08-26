@@ -91,7 +91,7 @@ export function Contact() {
         theme="dark"
 
       />
-    <section id="contact" className="py-20 ">
+    <section id="contact" className="py-22 ">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -100,7 +100,7 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 mb-6">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold  text-[#bc0000] mb-6"><span className="cursor-target"  >Get In Touch  </span></h2>
           <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
         </motion.div>
 
@@ -113,7 +113,7 @@ export function Contact() {
             className="md:space-y-9 space-y-6 px-1 sm:px-8 md:px-44 md:font-semibold"
           >
             
-            <p className="text-gray-600 leading-relaxed md:text-lg mb-8">
+            <p className="text-gray-400 leading-relaxed md:text-lg mb-8">
               I'm always interested in new opportunities and exciting projects. Whether you have a project in mind or
               just want to chat about technology, feel free to reach out.
             </p>
@@ -135,9 +135,9 @@ export function Contact() {
                         animate={{ rotate: [0] }}
                         transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                       >
-                        <item.icon className="h-8 w-8 text-gray-800 mr-4" />
+                        <item.icon className="h-8 w-8 text-red-900 mr-4" />
                       </motion.div>
-                      <Link href={item.link}><span className="text-gray-800 text-xl">{item.text}</span></Link>
+                      <Link href={item.link}><span className="text-gray-200 text-xl">{item.text}</span></Link>
                     </motion.div>
                   ))}
                 </div>
