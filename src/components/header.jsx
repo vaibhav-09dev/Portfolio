@@ -1,9 +1,7 @@
 "use client"
 
 import React from "react";
-import { FloatingDock } from "@/components/ui/floating-dock";
-import PillNav from "./ui/PillNav";
-import a2 from "../../public/a2.jpg";
+
 import {
   Navbar,
   NavBody,

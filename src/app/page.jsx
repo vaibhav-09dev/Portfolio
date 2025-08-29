@@ -6,9 +6,9 @@ import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
+
 import { ClassicBackground } from "@/components/classic-background"
-import { ClassicGrid } from "@/components/classic-grid"
+
 import { GradientOrbs } from "@/components/gradient-orbs"
 import { FloatingElements } from "@/components/floating-elements"
 import { Particles2D } from "@/components/particles-2d"
