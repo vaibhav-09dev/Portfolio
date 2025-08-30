@@ -78,7 +78,7 @@ const Hero1 = () => {
         
       <div className="container mx-auto px-2 text-center">
         
-        <div className="flex flex-col md:flex-row items-center justify-around space-y-8 md:space-y-28 md:space-x-8">
+        <div className="flex flex-col md:flex-row items-center justify-around sm:space-y-8 md:space-y-28 md:space-x-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,13 +87,14 @@ const Hero1 = () => {
              }}
             className="space-y-6"
           >
-            <h1 className="text-4xl cursor-target md:mt-0 mt-48 md:text-8xl font-light text-gray-800 mb-6">
-              <span
-                className="font-script text-7xl md:text-9xl italic text-[#b30000]"
-                >
-                Vaibhav Singh
-              </span>
-            </h1>
+           <h1 className="text-5xl cursor-target sm:text-4xl md:text-8xl font-light text-gray-800 mb-6 mt-20 sm:mt-0">
+  <span
+    className="font-script text-6xl sm:text-7xl md:text-9xl italic text-[#b30000]"
+    
+  >
+    Vaibhav Singh
+  </span>
+</h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -139,7 +140,7 @@ const Hero1 = () => {
                 </a>
               </div>
               <a href="https://drive.google.com/drive/u/2/folders/1CPPW9N3jYZA4R-lRD8JnF4JzYZ3_il6o">
-              <Button size="lg" className="bg-red-900 text-lg cursor-target hover:bg-gray-700 text-white px-8 py-3" onClick={scrollToAbout}>
+              <Button size="lg" className="bg-red-900 text-lg cursor-target hover:bg-gray-700 text-white px-8 py-3 mb-3.5" onClick={scrollToAbout}>
                 Certificates
               </Button>
               </a>
