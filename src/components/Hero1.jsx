@@ -16,13 +16,14 @@ const techLogos = [
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
   { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
   { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-  { node: <SiGit />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-  { node: <SiDocker />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-  { node: <SiNodedotjs />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiGit />, title: "Git", href: "https://git-scm.com/" },
+
+  { node: <SiNodedotjs />, title: "Node", href: "https://nodejs.org/en" },
   
 ];
 
 // Alternative with image sources
+
 const imageLogos = [
   { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
   { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
@@ -55,16 +56,18 @@ const Hero1 = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         
-      <div className="container mx-auto px-6 text-center">
+      <div className="container mx-auto px-2 text-center">
         
         <div className="flex flex-col md:flex-row items-center justify-around space-y-8 md:space-y-28 md:space-x-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4,
+              ease: "easeInOut"
+             }}
             className="space-y-6"
           >
-            <h1 className="text-6xl cursor-target md:mt-0 mt-2 md:text-8xl font-light text-gray-800 mb-6">
+            <h1 className="text-4xl cursor-target md:mt-0 mt-20 md:text-8xl font-light text-gray-800 mb-6">
               <span
                 className="font-script text-7xl md:text-9xl italic text-[#b30000]"
                 >
@@ -75,7 +78,7 @@ const Hero1 = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.6 ,ease: "easeInOut"}}
               className="text-xl  md:text-2xl text-gray-600 max-w-2xl mx-auto font-bold leading-relaxed"
             >
               I&apos;m a <span className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed"> <FlipWords words={words} /></span>
@@ -84,7 +87,7 @@ const Hero1 = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.8,ease: "easeInOut" }}
               className="text-lg font-medium cursor-target text-gray-500 max-w-3xl mx-auto"
             >
               Designing Seamless Digital Solutions for a Connected World...
@@ -93,9 +96,10 @@ const Hero1 = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
+              transition={{ duration: 0.8, delay: 1,ease: "easeInOut" }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
             >
+              
               <Button size="lg" className="bg-gray-800 cursor-target hover:bg-gray-900 text-white px-8 py-3" onClick={scrollToAbout}>
                 View My Work
               </Button>
@@ -117,12 +121,17 @@ const Hero1 = () => {
                 </Button>
                 </a>
               </div>
+              <a href="https://drive.google.com/drive/u/2/folders/1CPPW9N3jYZA4R-lRD8JnF4JzYZ3_il6o">
+              <Button size="lg" className="bg-gray-800 text-lg cursor-target hover:bg-gray-900 text-white px-8 py-3" onClick={scrollToAbout}>
+                Certificates
+              </Button>
+              </a>
             </motion.div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8,ease: "easeInOut", delay: 0.6 }}
             viewport={{ once: true }}
           >
                 <div className="aspect-square cursor-target rounded-full border-2  flex items-center justify-center">
@@ -131,7 +140,7 @@ const Hero1 = () => {
                     alt="Profile"
                     width={500}
                     height={500}
-                    className="rounded-full object-cover w-full h-full  flex items-center justify-center"
+                    className="rounded-full  object-cover w-full h-full  flex items-center justify-center"
                     
                   />
                   
@@ -156,12 +165,12 @@ const Hero1 = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
+          transition={{ delay: 1.5, duration: 0.8,ease: "easeInOut" }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
+            transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2,ease: "easeInOut" }}
             className="cursor-pointer"
             onClick={scrollToAbout}
           >

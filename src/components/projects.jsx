@@ -27,7 +27,7 @@ export function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8,ease: "easeInOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -41,7 +41,7 @@ export function Projects() {
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.2 ,ease: "easeInOut"}}
               viewport={{ once: true }}
             >
               <Card className="bg-white border-0 shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">

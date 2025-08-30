@@ -43,7 +43,7 @@ export function Contact() {
     e.preventDefault();
     setloading(true);
     try {
-      await axios.post("https://vabhsinghdev-nu.vercel.app/api/ConsumerData", user).then((res) => {
+      await axios.post("http://localhost:3000/api/ConsumerData", user).then((res) => {
               
         toast.success(res.data.message);
         setuser({
@@ -62,7 +62,7 @@ export function Contact() {
         })
 
       })
-      await axios.get("https://vabhsinghdev-nu.vercel.app/api/Sendmail");
+      await axios.get("http://localhost:3000/api/Sendmail");
 
     }
     catch (error) {
@@ -96,7 +96,7 @@ export function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -108,7 +108,7 @@ export function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             viewport={{ once: true }}
             className="md:space-y-9 space-y-6 px-1 sm:px-8 md:px-44 md:font-semibold"
           >
@@ -128,7 +128,7 @@ export function Contact() {
                       initial={{ opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       whileHover={{ x: 10, scale: 1.05 }}
-                      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                      transition={{ duration: 0.6, delay: 0.4 + index * 0.1, ease: "easeInOut" }}
                       viewport={{ once: true }}
                     >
                       <motion.div
@@ -147,7 +147,7 @@ export function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             viewport={{ once: true }}
           >
              <form className="space-y-4 px-2 sm:px-8 md:px-44" onSubmit={Send}>
@@ -156,14 +156,14 @@ export function Contact() {
       value={user.Name}
       onChange={(e) => setuser({ ...user, Name: e.target.value })}
       placeholder="Enter Your Full Name"
-      className=" backdrop-blur-md h-11 w-full px-3 rounded-2xl border border-gray-700 text-gray-800 placeholder:text-gray-500 focus:border-blue-400 transition-colors"
+      className=" cursor-target backdrop-blur-md h-11 w-full px-3 rounded-2xl border border-gray-600 text-gray-100 placeholder:text-gray-500 focus:border-blue-400 transition-colors"
     />
     <input
       type="email"
       value={user.email}
       onChange={(e) => setuser({ ...user, email: e.target.value })}
       placeholder="Enter Your Email"
-      className=" backdrop-blur-md h-11 w-full px-3 rounded-2xl border border-gray-700 text-gray-800 placeholder:text-gray-500 focus:border-blue-400 transition-colors"
+      className="cursor-target backdrop-blur-md h-11 w-full px-3 rounded-2xl border border-gray-600 text-gray-100 placeholder:text-gray-500 focus:border-blue-400 transition-colors"
     />
   </div>
   <textarea
@@ -171,13 +171,13 @@ export function Contact() {
     value={user.message}
     onChange={(e) => setuser({ ...user, message: e.target.value })}
     rows={5}
-    className=" backdrop-blur-md w-full px-3 py-2 rounded-2xl text-lg border border-gray-700 text-gray-800 placeholder:text-gray-500 focus:border-blue-400 transition-colors"
+    className="cursor-target backdrop-blur-md w-full px-3 py-2 rounded-2xl text-lg border border-gray-600 text-gray-100 placeholder:text-gray-500 focus:border-blue-400 transition-colors"
   />
   <button
     type="submit"
     disabled={loading}
     onClick={Send}
-    className="w-full h-11 bg-gray-700 flex justify-center items-center text-white rounded-2xl font-semibold"
+    className="w-full h-11 bg-red-900 flex justify-center cursor-target items-center text-white rounded-2xl font-semibold"
   >
     {loading ? "Sending..." : "Send Message"} <span className="ml-2 text-white font-bold"> <FaRegPaperPlane size={24} /> </span>
   </button>
