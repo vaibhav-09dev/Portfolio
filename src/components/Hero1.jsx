@@ -54,7 +54,7 @@ const Hero1 = () => {
         spinDuration={2}
         hideDefaultCursor={true}
       />
-      <div className="absolute top-24 right-4 z-10 space-x-4">
+      <div className="absolute top-20 right-4 z-10 space-x-4">
         <div className=" gap-4 inline-flex md:hidden">
                 <a href="https://github.com/vaibhav-09dev " target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon"  className="border-gray-300 cursor-target hover:bg-gray-600">
