@@ -140,7 +140,7 @@ const Hero1 = () => {
                 </a>
               </div>
               <a href="https://drive.google.com/drive/u/2/folders/1CPPW9N3jYZA4R-lRD8JnF4JzYZ3_il6o">
-              <Button size="lg" className="bg-red-900 text-lg cursor-target hover:bg-gray-700 text-white px-8 py-3 mb-3.5" onClick={scrollToAbout}>
+              <Button size="lg" className="bg-red-900 text-lg cursor-target hover:bg-gray-700 text-white px-8 py-3 md:mb-0 mb-3.5" onClick={scrollToAbout}>
                 Certificates
               </Button>
               </a>
