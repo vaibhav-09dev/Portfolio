@@ -89,7 +89,7 @@ const Hero1 = () => {
           >
            <h1 className="text-5xl cursor-target sm:text-4xl md:text-8xl font-light text-gray-800 mb-6 mt-20 sm:mt-0">
   <span
-    className="font-script text-6xl sm:text-7xl md:text-9xl italic text-[#b30000]"
+    className="font-script text-6xl sm:text-7xl mt-5 font-bold md:text-9xl italic text-[#b30000]"
     
   >
     Vaibhav Singh
