@@ -54,6 +54,26 @@ const Hero1 = () => {
         spinDuration={2}
         hideDefaultCursor={true}
       />
+      <div className="absolute top-24 right-4 z-10 space-x-4">
+        <div className=" gap-4 inline-flex md:hidden">
+                <a href="https://github.com/vaibhav-09dev " target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon"  className="border-gray-300 cursor-target hover:bg-gray-600">
+                  <Github className="w-5 h-5" />
+                </Button>
+                </a>
+                <a href="https://www.linkedin.com/in/vaibhav-singh-1aaa74327/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="border-gray-300 cursor-target hover:bg-gray-600">
+                  <Linkedin className="w-5 h-5" />
+                </Button>
+                </a>
+                 <a href="mailto:vabhsingh@gmail.com " target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="border-gray-300 cursor-target hover:bg-gray-600">
+                  <Mail className="w-5 h-5" />
+                </Button>
+                </a>
+              </div>
+       
+      </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         
       <div className="container mx-auto px-2 text-center">
@@ -67,7 +87,7 @@ const Hero1 = () => {
              }}
             className="space-y-6"
           >
-            <h1 className="text-4xl cursor-target md:mt-0 mt-20 md:text-8xl font-light text-gray-800 mb-6">
+            <h1 className="text-4xl cursor-target md:mt-0 mt-48 md:text-8xl font-light text-gray-800 mb-6">
               <span
                 className="font-script text-7xl md:text-9xl italic text-[#b30000]"
                 >
@@ -79,16 +99,16 @@ const Hero1 = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 ,ease: "easeInOut"}}
-              className="text-xl  md:text-2xl text-gray-600 max-w-2xl mx-auto font-bold leading-relaxed"
+              className="text-xl  md:text-2xl text-gray-300 max-w-2xl mx-auto font-bold leading-relaxed"
             >
-              I&apos;m a <span className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed"> <FlipWords words={words} /></span>
+              I&apos;m a <span className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed"> <FlipWords words={words} /></span>
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8,ease: "easeInOut" }}
-              className="text-lg font-medium cursor-target text-gray-500 max-w-3xl mx-auto"
+              className="text-lg font-medium cursor-target text-gray-400 max-w-3xl mx-auto"
             >
               Designing Seamless Digital Solutions for a Connected World...
             </motion.p>
@@ -100,11 +120,8 @@ const Hero1 = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
             >
               
-              <Button size="lg" className="bg-gray-800 cursor-target hover:bg-gray-900 text-white px-8 py-3" onClick={scrollToAbout}>
-                View My Work
-              </Button>
-
-              <div className="flex gap-4">
+             
+              <div className=" gap-4 md:inline-flex hidden">
                 <a href="https://github.com/vaibhav-09dev " target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon"  className="border-gray-300 cursor-target hover:bg-gray-600">
                   <Github className="w-5 h-5" />
@@ -122,7 +139,7 @@ const Hero1 = () => {
                 </a>
               </div>
               <a href="https://drive.google.com/drive/u/2/folders/1CPPW9N3jYZA4R-lRD8JnF4JzYZ3_il6o">
-              <Button size="lg" className="bg-gray-800 text-lg cursor-target hover:bg-gray-900 text-white px-8 py-3" onClick={scrollToAbout}>
+              <Button size="lg" className="bg-red-900 text-lg cursor-target hover:bg-gray-700 text-white px-8 py-3" onClick={scrollToAbout}>
                 Certificates
               </Button>
               </a>
@@ -174,7 +191,7 @@ const Hero1 = () => {
             className="cursor-pointer"
             onClick={scrollToAbout}
           >
-            <ArrowDown className="w-10 h-10 font-bold text-gray-400 " />
+            <ArrowDown className="w-10 h-10 font-bold mb-8 text-gray-400 " />
           </motion.div>
         </motion.div>
       </div>
